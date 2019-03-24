@@ -11,8 +11,11 @@ public class MainActivity extends AppCompatActivity {
 
     TextView mainText;
     Button mainBtn;
+    Button subtarctBtn;
+    Button resetBtn;
 
-    private long score = 0;
+
+    private int score = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,19 +24,54 @@ public class MainActivity extends AppCompatActivity {
 
         mainText = (TextView) findViewById(R.id.mainText);
         mainBtn = (Button) findViewById(R.id.button);
+        subtarctBtn = (Button) findViewById(R.id.subbutton);
+        resetBtn = (Button) findViewById(R.id.reset);
 
 
         View.OnClickListener clickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                score ++;
-                String s = "Кликов: " + score;
+                score++;
+                String s = "Кликов: " + forms(score);
                 mainText.setText(s.toCharArray(),0, s.length());
             }
         };
-
         mainBtn.setOnClickListener(clickListener);
 
+
+        View.OnClickListener clickListener1 = new View.OnClickListener(){
+            @Override
+            public void onClick(View V){
+                score--;
+                String s = "Кликов: " + forms(score);
+                mainText.setText(s.toCharArray(),0, s.length());
+            }
+        };
+        subtarctBtn.setOnClickListener(clickListener1);
+
+        View.OnClickListener clickListener2 = new View.OnClickListener(){
+            @Override
+            public void onClick(View V){
+                score = 0;
+                String s = "Кликов: " + forms(score);
+                mainText.setText(s.toCharArray(),0, s.length());
+            }
+        };
+        resetBtn.setOnClickListener(clickListener2);
+
+    }
+
+    protected String forms(int number){
+        int ostatok = Math.abs(number) % 10;
+
+        switch (ostatok){
+            case 2:
+            case 3:
+            case 4:
+                return number + "раза";
+            default: return number + "раз";
+
+        }
     }
 }
 

@@ -25,8 +25,18 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Button"/>
+            android:text="Add"/>
+        <Button
+            android:id="@+id/subbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subtract"/>
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cat"
+            android:text="Reset"/>
 
     </LinearLayout>
-
 </android.support.constraint.ConstraintLayout>
